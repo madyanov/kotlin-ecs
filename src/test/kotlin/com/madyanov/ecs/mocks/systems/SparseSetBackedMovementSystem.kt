@@ -16,5 +16,5 @@ class SparseSetBackedMovementSystem(nexus: Nexus) : SparseSetBackedSystem(nexus)
     override val traits: EntityTraitSet
         get() = EntityTraitSet(setOf(Position::class, Velocity::class))
 
-    override fun update() { }
+    override fun update() {}
 }

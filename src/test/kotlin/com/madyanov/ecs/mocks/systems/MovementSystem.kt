@@ -12,7 +12,7 @@ class MovementSystem : System {
 
     val entityIds = SparseSet<EntityIdentifier>()
 
-    override fun update() { }
+    override fun update() {}
 
     override fun has(entityId: EntityIdentifier): Boolean = entityIds.contains(entityId.key)
     override fun add(entityId: EntityIdentifier) = entityIds.insert(entityId, entityId.key).discard()

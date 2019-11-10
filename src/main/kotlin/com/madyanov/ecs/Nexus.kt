@@ -20,7 +20,9 @@ class Nexus(systems: List<System> = listOf()) {
         addSystems(systems)
     }
 
-    fun addSystems(systems: List<System>) { this.systems += systems.map { Pair(it, it.traits) } }
+    fun addSystems(systems: List<System>) {
+        this.systems += systems.map { Pair(it, it.traits) }
+    }
 
     fun addSystem(system: System) = addSystems(listOf(system))
 
@@ -78,7 +80,7 @@ class Nexus(systems: List<System> = listOf()) {
         componentsByComponentClasses[component]?.contains(entityId.key) ?: false
 
     @Suppress("UNCHECKED_CAST")
-    fun <C: Component> get(component: KClass<out C>, entityId: EntityIdentifier): C? =
+    fun <C : Component> get(component: KClass<out C>, entityId: EntityIdentifier): C? =
         componentsByComponentClasses[component]?.get(entityId.key) as? C
 
     private fun updateSystemsMembership(entityId: EntityIdentifier) {

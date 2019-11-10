@@ -2,7 +2,7 @@ package com.madyanov.ecs
 
 import java.util.*
 
-class SparseSet<Element>() : Iterable<Element> {
+class SparseSet<Element> : Iterable<Element> {
 
     val size: Int
         get() = elements.size
