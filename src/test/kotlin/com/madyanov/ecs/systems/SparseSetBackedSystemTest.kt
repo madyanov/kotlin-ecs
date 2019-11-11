@@ -18,11 +18,11 @@ class SparseSetBackedSystemTest {
 
     @Test
     fun `test system synchronization`() {
-        nexus.makeEntity(listOf(Position()))
-        nexus.makeEntity(listOf(Velocity()))
+        nexus.makeEntity(Position())
+        nexus.makeEntity(Velocity())
 
-        val entityId3 = nexus.makeEntity(listOf(Position(), Velocity()))
-        val entityId4 = nexus.makeEntity(listOf(Position(), Velocity()))
+        val entityId3 = nexus.makeEntity(Position(), Velocity())
+        val entityId4 = nexus.makeEntity(Position(), Velocity())
 
         Assertions.assertEquals(2, movementSystem.publicEntityIds.size)
         Assertions.assertEquals(listOf(entityId3, entityId4), movementSystem.publicEntityIds.elements)

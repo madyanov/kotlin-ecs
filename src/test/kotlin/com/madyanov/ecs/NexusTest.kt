@@ -39,11 +39,11 @@ class NexusTest {
         val movementSystem = MovementSystem()
         nexus.addSystem(movementSystem)
 
-        nexus.makeEntity(listOf(Position()))
-        nexus.makeEntity(listOf(Velocity()))
+        nexus.makeEntity(Position())
+        nexus.makeEntity(Velocity())
 
-        val entityId3 = nexus.makeEntity(listOf(Position(), Velocity()))
-        val entityId4 = nexus.makeEntity(listOf(Position(), Velocity()))
+        val entityId3 = nexus.makeEntity(Position(), Velocity())
+        val entityId4 = nexus.makeEntity(Position(), Velocity())
 
         Assertions.assertEquals(2, movementSystem.entityIds.size)
         Assertions.assertEquals(listOf(entityId3, entityId4), movementSystem.entityIds.elements)
@@ -61,7 +61,7 @@ class NexusTest {
         val movementSystem = MovementSystem()
         nexus.addSystem(movementSystem)
 
-        val entityId = nexus.makeEntity(listOf(Position()))
+        val entityId = nexus.makeEntity(Position())
         Assertions.assertFalse(movementSystem.removeMethodCalled)
 
         nexus.removeEntity(entityId)
@@ -81,7 +81,7 @@ class NexusTest {
 
     @Test
     fun `test component removing`() {
-        val entityId = nexus.makeEntity(listOf(Position(42, 33)))
+        val entityId = nexus.makeEntity(Position(42, 33))
         Assertions.assertTrue(nexus.has(Position::class, entityId))
 
         nexus.remove(Position::class, entityId)
@@ -124,10 +124,10 @@ class NexusTest {
     fun `test numberOfComponents property`() {
         Assertions.assertEquals(0, nexus.numberOfComponents)
 
-        val entityId1 = nexus.makeEntity(listOf(Velocity()))
+        val entityId1 = nexus.makeEntity(Velocity())
         Assertions.assertEquals(1, nexus.numberOfComponents)
 
-        val entityId2 = nexus.makeEntity(listOf(Velocity(), Initiative()))
+        val entityId2 = nexus.makeEntity(Velocity(), Initiative())
         Assertions.assertEquals(3, nexus.numberOfComponents)
 
         nexus.removeEntity(entityId1)

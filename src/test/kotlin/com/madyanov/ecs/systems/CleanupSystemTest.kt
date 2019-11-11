@@ -17,9 +17,9 @@ class CleanupSystemTest {
 
     @Test
     fun `test component removing`() {
-        val entityId1 = nexus.makeEntity(listOf(Position()))
-        val entityId2 = nexus.makeEntity(listOf(Position()))
-        val entityId3 = nexus.makeEntity(listOf(Velocity()))
+        val entityId1 = nexus.makeEntity(Position())
+        val entityId2 = nexus.makeEntity(Position())
+        val entityId3 = nexus.makeEntity(Velocity())
 
         nexus.updateSystems()
 

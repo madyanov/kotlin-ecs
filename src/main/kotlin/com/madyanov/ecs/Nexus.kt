@@ -35,6 +35,8 @@ class Nexus(systems: List<System> = listOf()) {
         return entityId
     }
 
+    fun makeEntity(vararg components: Component): EntityIdentifier = makeEntity(components.toList())
+
     fun removeEntity(entityId: EntityIdentifier) {
         assert(entityIds.contains(entityId))
 
