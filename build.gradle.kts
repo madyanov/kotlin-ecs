@@ -1,5 +1,3 @@
-import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
-
 plugins {
     kotlin("jvm") version "1.3.50"
 }
@@ -13,6 +11,8 @@ repositories {
 
 dependencies {
     implementation(kotlin("stdlib-jdk8"))
+
+    testCompile(kotlin("reflect"))
 
     testImplementation("org.junit.jupiter:junit-jupiter-api:5.5.2")
     testImplementation("org.junit.jupiter:junit-jupiter-params:5.5.2")

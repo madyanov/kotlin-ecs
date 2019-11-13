@@ -139,4 +139,12 @@ class NexusTest {
         nexus.removeEntity(entityId2)
         Assertions.assertEquals(0, nexus.numberOfComponents)
     }
+
+    @Test
+    fun `test all entity components fetching`() {
+        val entityId = nexus.makeEntity(Position(), Velocity(), Initiative())
+
+        val components = nexus.components(entityId).mapNotNull { it::class.simpleName }.sorted()
+        Assertions.assertEquals(arrayListOf("Initiative", "Position", "Velocity"), components)
+    }
 }

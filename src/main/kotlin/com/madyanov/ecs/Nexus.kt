@@ -85,6 +85,9 @@ class Nexus(systems: List<System> = listOf()) {
     fun <C : Component> get(component: KClass<out C>, entityId: EntityIdentifier): C? =
         componentsByComponentClasses[component]?.get(entityId.key) as? C
 
+    fun components(entityId: EntityIdentifier): List<Component> =
+        componentClassesByEntityId[entityId]?.mapNotNull { get(it, entityId) } ?: listOf()
+
     private fun updateSystemsMembership(entityId: EntityIdentifier) {
         val components = componentClassesByEntityId[entityId] ?: mutableSetOf()
 
