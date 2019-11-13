@@ -8,10 +8,9 @@ import org.junit.jupiter.api.Test
 
 class CleanupSystemTest {
     private val nexus = Nexus()
-    private val cleanupSystem: CleanupSystem
+    private val cleanupSystem = CleanupSystem(nexus, Position::class)
 
     init {
-        cleanupSystem = CleanupSystem(nexus, Position::class)
         nexus.addSystem(cleanupSystem)
     }
 

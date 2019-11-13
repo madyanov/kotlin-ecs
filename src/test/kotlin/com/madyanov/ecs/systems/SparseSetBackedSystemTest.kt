@@ -9,10 +9,9 @@ import org.junit.jupiter.api.Test
 
 class SparseSetBackedSystemTest {
     private val nexus = Nexus()
-    private val movementSystem: SparseSetBackedMovementSystem
+    private val movementSystem = SparseSetBackedMovementSystem(nexus)
 
     init {
-        movementSystem = SparseSetBackedMovementSystem(nexus)
         nexus.addSystem(movementSystem)
     }
 
