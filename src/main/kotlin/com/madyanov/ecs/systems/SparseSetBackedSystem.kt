@@ -7,8 +7,8 @@ abstract class SparseSetBackedSystem(nexus: Nexus) : System {
 
     abstract override val traits: EntityTraitSet
 
-    protected val nexus: Nexus?
-        get() = weakNexus.get()
+    protected val nexus: Nexus
+        get() = weakNexus.get()!!
 
     protected val entityIds = SparseSet<EntityIdentifier>()
 

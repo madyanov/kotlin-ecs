@@ -13,5 +13,5 @@ class CleanupSystem(
     override val traits: EntityTraitSet
         get() = EntityTraitSet(setOf(klass))
 
-    override fun update() = entityIds.toList().forEach { nexus?.remove(klass, it) }
+    override fun update() = entityIds.toList().forEach { nexus.remove(klass, it) }
 }
